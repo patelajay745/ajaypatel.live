@@ -3,6 +3,7 @@ import { ExperinceSection } from "./components/ExperinceSection";
 
 import { ModeToggle } from "./components/ModeToggle";
 import ScrollDownButton from "./components/ScrollDownButton";
+import { SkillSection } from "./components/SkillSection";
 import { ThemeProvider } from "./components/themeProvider";
 
 import HeroSection from "@/components/HeroSection";
@@ -17,7 +18,9 @@ function App() {
 
         <HeroSection />
         <ScrollDownButton />
-        <ExperinceSection/>
+        <ExperinceSection />
+
+        <SkillSection />
       </div>
     </ThemeProvider>
   );
