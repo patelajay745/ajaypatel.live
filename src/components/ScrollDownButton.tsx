@@ -10,7 +10,7 @@ function ScrollDownButton() {
     });
   };
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div className="fixed bottom-8 right-4 transform -translate-x-1/2 animate-bounce">
       <Button
         variant="ghost"
         size="icon"

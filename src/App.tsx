@@ -7,6 +7,7 @@ import { SkillSection } from "./components/SkillSection";
 import { ThemeProvider } from "./components/themeProvider";
 
 import HeroSection from "@/components/HeroSection";
+import { CertificateSection } from "./components/CertificateSection";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <ExperinceSection />
 
         <SkillSection />
+
+        <CertificateSection />
       </div>
     </ThemeProvider>
   );

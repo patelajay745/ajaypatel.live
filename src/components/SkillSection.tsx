@@ -5,7 +5,7 @@ import { Badge } from "./ui/badge";
 export const SkillSection: FC = () => {
   const skills = {
     devops: [
-      "Docker",
+      "Containerization",
       "Kubernetes",
       "Jenkins",
       "AWS",
