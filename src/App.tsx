@@ -1,4 +1,5 @@
 import "./App.css";
+import { ExperinceSection } from "./components/ExperinceSection";
 
 import { ModeToggle } from "./components/ModeToggle";
 import ScrollDownButton from "./components/ScrollDownButton";
@@ -16,6 +17,7 @@ function App() {
 
         <HeroSection />
         <ScrollDownButton />
+        <ExperinceSection/>
       </div>
     </ThemeProvider>
   );
