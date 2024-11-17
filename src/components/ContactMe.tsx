@@ -44,7 +44,10 @@ export const ContactMeSection: FC = () => {
   };
 
   return (
-    <div className="py-20 px-4 md:px-20 lg:px-32 dark:bg-slate-950 bg-slate-50">
+    <div
+      id="contactMe"
+      className="py-20 px-4 md:px-20 lg:px-32 dark:bg-slate-950 bg-slate-50"
+    >
       <h2 className="text-3xl font-bold mb-12 dark:text-white text-slate-900">
         Contact Me
       </h2>

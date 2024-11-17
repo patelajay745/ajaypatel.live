@@ -78,6 +78,9 @@ function HeroSection() {
             </Button>
           </Link>
           <Button
+            onClick={() => {
+              document.getElementById("contactMe")?.scrollIntoView();
+            }}
             variant="outline"
             className="gap-2 border-black dark:border-white"
           >
