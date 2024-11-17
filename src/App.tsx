@@ -10,7 +10,6 @@ import HeroSection from "@/components/HeroSection";
 import { CertificateSection } from "./components/CertificateSection";
 import { ProjectSection } from "./components/ProjectSections";
 import { EducationSection } from "./components/EducationSection";
-import { BlogsSection } from "./components/BlogsSection";
 import { ContactMeSection } from "./components/ContactMe";
 
 function App() {

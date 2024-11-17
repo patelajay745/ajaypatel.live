@@ -19,22 +19,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Mail, Send, AlertCircle } from "lucide-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
 };
 
 export const ContactMeSection: FC = () => {
-  const [submitted, setSubmitted] = React.useState(false);
   const [error, setError] = React.useState("");
 
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    try {
+    } catch (error) {
+      setError((error as Error).message);
+    }
+    console.log(data);
+  };
 
   return (
     <div className="py-20 px-4 md:px-20 lg:px-32 dark:bg-slate-950 bg-slate-50">
@@ -60,6 +67,7 @@ export const ContactMeSection: FC = () => {
                   id="firstName"
                   placeholder="Enter your first name"
                   required
+                  {...register("firstName")}
                 />
               </div>
               <div className="space-y-2">
@@ -68,6 +76,7 @@ export const ContactMeSection: FC = () => {
                   id="lastName"
                   placeholder="Enter your last name"
                   required
+                  {...register("lastName")}
                 />
               </div>
             </div>
@@ -79,12 +88,13 @@ export const ContactMeSection: FC = () => {
                 type="email"
                 placeholder="Enter your email"
                 required
+                {...register("email")}
               />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="subject">Subject</Label>
-              <Select required>
+              <Select required {...register("subject")}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select a subject" />
                 </SelectTrigger>
@@ -99,20 +109,13 @@ export const ContactMeSection: FC = () => {
             <div className="space-y-2">
               <Label htmlFor="message">Message</Label>
               <Textarea
+                {...register("message")}
                 id="message"
                 placeholder="Type your message here"
                 className="min-h-[120px]"
                 required
               />
             </div>
-
-            {submitted && (
-              <Alert className="bg-green-50 text-green-700 border-green-200">
-                <AlertDescription className="flex items-center gap-2">
-                  Message sent successfully! We'll get back to you soon.
-                </AlertDescription>
-              </Alert>
-            )}
 
             {error && (
               <Alert variant="destructive">
