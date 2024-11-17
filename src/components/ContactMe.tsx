@@ -52,7 +52,7 @@ export const ContactMeSection: FC = () => {
         Contact Me
       </h2>
 
-      <Card className="max-w-2xl mx-auto border-black dark:border-white shadow-2xl">
+      <Card className="max-w-2xl mx-auto border-black dark:shadow-5xl dark:shadow-black  shadow-2xl">
         <CardHeader>
           <CardTitle className="text-2xl flex items-center gap-2">
             <Mail className="w-6 h-6" />
