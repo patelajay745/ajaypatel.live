@@ -8,7 +8,7 @@ function HeroSection() {
   const words = [
     {
       text: "DevOps",
-      className: "text-purple-600 dark:text-purple-800",
+      className: "text-purple-600 dark:text-purple-800 ",
     },
     {
       text: "Engineer",
