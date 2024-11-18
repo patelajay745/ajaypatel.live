@@ -22,6 +22,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Mail, Send, AlertCircle } from "lucide-react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 type Inputs = {
   firstName: string;
@@ -46,20 +47,14 @@ export const ContactMeSection: FC = () => {
   return (
     <div
       id="contactMe"
-      className="py-20 px-4 md:px-20 lg:px-32 dark:bg-slate-950 bg-slate-50"
+      className="py-20 px-4 md:px-20 lg:px-32 dark:bg-slate-950 bg-slate-50 "
     >
       <h2 className="text-3xl font-bold mb-12 dark:text-white text-slate-900">
         Contact Me
       </h2>
 
-      <Card className="max-w-2xl mx-auto border-black dark:shadow-5xl dark:shadow-black  shadow-2xl">
-        <CardHeader>
-          <CardTitle className="text-2xl flex items-center gap-2">
-            <Mail className="w-6 h-6" />
-            Contact me
-          </CardTitle>
-          <CardDescription>Do you have something for me?</CardDescription>
-        </CardHeader>
+      <Card className="dark:border-white max-w-2xl mx-auto border-black dark:shadow-5xl dark:shadow-black  shadow-2xl">
+        <CardHeader></CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -130,13 +125,20 @@ export const ContactMeSection: FC = () => {
         </CardContent>
 
         <CardFooter className="flex justify-between">
-          <Button variant="outline" type="reset">
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+          >
             Clear
-          </Button>
-          <Button className="gap-2">
-            <Send className="w-4 h-4" />
+          </HoverBorderGradient>
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+          >
             Send Message
-          </Button>
+          </HoverBorderGradient>
         </CardFooter>
       </Card>
     </div>

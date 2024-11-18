@@ -23,7 +23,7 @@ export const CertificateSection: FC = () => {
         to="https://www.credly.com/users/ajay-patel.dbca45d9"
         target="_blank"
       >
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center flex-wrap">
           {images.map((image, idx) => (
             <motion.div
               key={"images" + idx}

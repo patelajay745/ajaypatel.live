@@ -37,6 +37,22 @@ export const ProjectSection: FC = () => {
         "99.9% uptime achievement, 70% cost reduction from shared hosting, deployment time reduced from hours to 3 minutes",
     },
     {
+      title: "Portfolio Website with Cloud-Native Architecture",
+      description:
+        "Developed modern portfolio website with serverless backend, containerized deployment, and automated CI/CD pipeline",
+      tags: [
+        "React",
+        "AWS Lambda",
+        "Docker",
+        "Google Cloud Build",
+        "GitHub Actions",
+        "Cloud Monitoring",
+      ],
+      metrics:
+        "Achieved 100% automated deployments, integrated monitoring, and sub-second page load times",
+      link: "https://github.com/patelajay745/react-ajaypatel.live",
+    },
+    {
       title: "RSVP Event Management System (POC)",
       description:
         "Built a serverless RSVP application with secure authentication, email notifications, and theme management capabilities",

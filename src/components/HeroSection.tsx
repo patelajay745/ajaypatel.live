@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 import { Link } from "react-router-dom";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 function HeroSection() {
   const words = [
@@ -59,34 +60,38 @@ function HeroSection() {
         </p>
         <div className="flex gap-4 pt-4">
           <Link to="https://github.com/patelajay745/" target="_blank">
-            <Button
-              variant="outline"
-              className="gap-2 border-black dark:border-white"
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4 mr-2" />
               GitHub
-            </Button>
+            </HoverBorderGradient>
           </Link>
 
           <Link to="https://www.linkedin.com/in/patelajay745/" target="_blank">
-            <Button
-              variant="outline"
-              className="gap-2 border-black dark:border-white"
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-4 h-4 mr-2" />
               LinkedIn
-            </Button>
+            </HoverBorderGradient>
           </Link>
-          <Button
+
+          <HoverBorderGradient
             onClick={() => {
               document.getElementById("contactMe")?.scrollIntoView();
             }}
-            variant="outline"
-            className="gap-2 border-black dark:border-white"
+            containerClassName="rounded-full"
+            as="button"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
           >
-            <Mail className="w-4 h-4" />
+            <Mail className="w-4 h-4 mr-2" />
             Email
-          </Button>
+          </HoverBorderGradient>
         </div>
       </div>
     </div>
