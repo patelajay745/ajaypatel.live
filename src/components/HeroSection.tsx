@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 import { Link } from "react-router-dom";
