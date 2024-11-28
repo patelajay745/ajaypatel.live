@@ -11,6 +11,7 @@ import { CertificateSection } from "./components/CertificateSection";
 import { ProjectSection } from "./components/ProjectSections";
 import { EducationSection } from "./components/EducationSection";
 import { ContactMeSection } from "./components/ContactMe";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
         {/* <BlogsSection /> */}
 
         <ContactMeSection />
+
+        <Toaster />
       </div>
     </ThemeProvider>
   );

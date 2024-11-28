@@ -21,6 +21,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { useToast } from "@/hooks/use-toast";
 
 type Inputs = {
   firstName: string;
@@ -31,6 +32,8 @@ type Inputs = {
 };
 
 export const ContactMeSection: FC = () => {
+  const { toast } = useToast();
+
   const [error, setError] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -65,6 +68,9 @@ export const ContactMeSection: FC = () => {
         throw new Error("Failed to send message");
       }
 
+      toast({
+        description: "Your message has been sent.",
+      });
       reset();
     } catch (error) {
       setError((error as Error).message);
