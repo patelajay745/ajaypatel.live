@@ -57,7 +57,7 @@ export const ContactMeSection: FC = () => {
         },
       });
 
-      const responseData = await response.json();
+      // const responseData = await response.json();
 
       if (response.status !== 200) {
         throw new Error("Failed to send message");
