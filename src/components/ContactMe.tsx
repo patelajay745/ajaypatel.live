@@ -43,18 +43,30 @@ export const ContactMeSection: FC = () => {
     setIsLoading(true);
     setError("");
     try {
-      const formBody = Object.keys(data)
-        .map(
-          (key) =>
-            encodeURIComponent(key) +
-            "=" +
-            encodeURIComponent(data[key as keyof Inputs])
-        )
-        .join("&");
+      // const formBody = Object.keys(data)
+      //   .map(
+      //     (key) =>
+      //       encodeURIComponent(key) +
+      //       "=" +
+      //       encodeURIComponent(data[key as keyof Inputs])
+      //   )
+      //   .join("&");
+
+      let formData = new FormData();
+      formData.append("firstName", data.firstName);
+      formData.append("lastName", data.lastName);
+      formData.append("email", data.email);
+      formData.append("subject", data.subject);
+      formData.append(
+        "message",
+        data.message + "<br>" + " From : " + data.email
+      );
+
+      console.log(formData);
 
       const response = await fetch("https://backend.ajaypatel.live", {
         method: "POST",
-        body: formBody,
+        body: formData,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
