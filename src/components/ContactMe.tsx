@@ -60,6 +60,7 @@ export const ContactMeSection: FC = () => {
 
       const response = await fetch("https://backend.ajaypatel.live", {
         method: "POST",
+        mode: "cors",
         body: formBody,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
