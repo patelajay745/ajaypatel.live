@@ -32,14 +32,46 @@ type Inputs = {
 
 export const ContactMeSection: FC = () => {
   const [error, setError] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
 
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    console.log(data);
+    setIsLoading(true);
+    setError("");
     try {
+      const formBody = Object.keys(data)
+        .map(
+          (key) =>
+            encodeURIComponent(key) +
+            "=" +
+            encodeURIComponent(data[key as keyof Inputs])
+        )
+        .join("&");
+
+      const response = await fetch("https://backend.ajaypatel.live", {
+        method: "POST",
+        body: formBody,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      reset();
     } catch (error) {
       setError((error as Error).message);
+    } finally {
+      setIsLoading(false);
     }
-    console.log(data);
+  };
+
+  const handleClear = () => {
+    reset();
+    setError("");
   };
 
   return (
@@ -114,30 +146,37 @@ export const ContactMeSection: FC = () => {
             </div>
 
             {error && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
+              <Alert variant="destructive" className="border-white">
+                <AlertCircle className="h-4 w-4 border-white" />
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
+
+            <div className="flex justify-between">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                onClick={handleClear}
+                disabled={isLoading}
+                className={`dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 
+                ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+              >
+                Clear
+              </HoverBorderGradient>
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                disabled={isLoading}
+                className={`dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 
+                  ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+              >
+                Send Message
+              </HoverBorderGradient>
+            </div>
           </form>
         </CardContent>
 
-        <CardFooter className="flex justify-between">
-          <HoverBorderGradient
-            containerClassName="rounded-full"
-            as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-          >
-            Clear
-          </HoverBorderGradient>
-          <HoverBorderGradient
-            containerClassName="rounded-full"
-            as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-          >
-            Send Message
-          </HoverBorderGradient>
-        </CardFooter>
+        <CardFooter className="flex justify-between"></CardFooter>
       </Card>
     </div>
   );
