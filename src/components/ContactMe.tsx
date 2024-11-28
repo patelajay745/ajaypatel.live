@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 type Inputs = {
@@ -34,7 +34,7 @@ export const ContactMeSection: FC = () => {
   const [error, setError] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const { register, handleSubmit, reset, control } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
     setIsLoading(true);
@@ -57,7 +57,9 @@ export const ContactMeSection: FC = () => {
         },
       });
 
-      if (!response.ok) {
+      const responseData = await response.json();
+
+      if (response.status !== 200) {
         throw new Error("Failed to send message");
       }
 
@@ -122,16 +124,28 @@ export const ContactMeSection: FC = () => {
 
             <div className="space-y-2">
               <Label htmlFor="subject">Subject</Label>
-              <Select required {...register("subject")}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a subject" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="general">Freelance opportunity</SelectItem>
-                  <SelectItem value="support">Job opportunity</SelectItem>
-                  <SelectItem value="feedback">Feedback</SelectItem>
-                </SelectContent>
-              </Select>
+              <Controller
+                name="subject"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a subject" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="general">
+                        Freelance opportunity
+                      </SelectItem>
+                      <SelectItem value="support">Job opportunity</SelectItem>
+                      <SelectItem value="feedback">Feedback</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
+              />
             </div>
 
             <div className="space-y-2">
