@@ -150,10 +150,10 @@ export const ContactMeSection: FC = () => {
                       <SelectValue placeholder="Select a subject" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="general">
+                      <SelectItem value="freelance">
                         Freelance opportunity
                       </SelectItem>
-                      <SelectItem value="support">Job opportunity</SelectItem>
+                      <SelectItem value="job">Job opportunity</SelectItem>
                       <SelectItem value="feedback">Feedback</SelectItem>
                     </SelectContent>
                   </Select>
