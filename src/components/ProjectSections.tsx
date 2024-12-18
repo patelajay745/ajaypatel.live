@@ -99,6 +99,20 @@ export const ProjectSection: FC = () => {
         "Implemented multi-environment deployment, automated security scanning, and horizontal pod autoscaling",
       link: "https://studyroom.ajayproject.com/",
     },
+    {
+      title: "Chat Application (POC)",
+      description: "Devloped and deployed Chat appliction using websockets.",
+      tags: [
+        "Node.js",
+        "Typescript",
+        "Google cloud run",
+        "Docker",
+        "Kubernetes",
+        "Github Actions",
+        "Google metrics and logging",
+      ],
+      metrics: "",
+    },
   ];
   return (
     <div
