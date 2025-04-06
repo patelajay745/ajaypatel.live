@@ -1,32 +1,32 @@
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 import { Link } from "react-router-dom";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { TextScaleEffect } from "@/components/ui/snappy-text-generate";
 
 function HeroSection() {
-  const words = [
-    {
-      text: "DevOps",
-      className: "text-purple-600 dark:text-purple-800 ",
-    },
-    {
-      text: "Engineer",
-      className: "text-purple-600 dark:text-purple-800",
-    },
-    {
-      text: "&",
-      className: "text-purple-600 dark:text-purple-800",
-    },
-    {
-      text: "Full-Stack",
-      className: "text-purple-600 dark:text-purple-800",
-    },
-    {
-      text: "Developer",
-      className: "text-purple-600 dark:text-purple-800",
-    },
-  ];
+  // const words = [
+  //   {
+  //     text: "DevOps",
+  //     className: "text-purple-600 dark:text-purple-800 ",
+  //   },
+  //   {
+  //     text: "Engineer",
+  //     className: "text-purple-600 dark:text-purple-800",
+  //   },
+  //   {
+  //     text: "&",
+  //     className: "text-purple-600 dark:text-purple-800",
+  //   },
+  //   {
+  //     text: "Full-Stack",
+  //     className: "text-purple-600 dark:text-purple-800",
+  //   },
+  //   {
+  //     text: "Developer",
+  //     className: "text-purple-600 dark:text-purple-800",
+  //   },
+  // ];
   return (
     <div
       className={`h-screen flex flex-col justify-center px-4 md:px-20 lg:px-32 dark:bg-gradient-to-b dark:from-slate-950 dark:to-black bg-gradient-to-b from-slate-100 to-white
@@ -49,7 +49,10 @@ function HeroSection() {
           I'm Ajay Patel
         </h1>
 
-        <TypewriterEffectSmooth words={words} />
+        <TextScaleEffect words="DevOps Engineer & Full-Stack Developer" staggerTime={0.15}
+          duration={0.6}
+          rotation={true}
+          className="text-5xl text-purple-500" />
         <p
           className={`text-xl dark:text-slate-400 text-slate-600"
           }`}

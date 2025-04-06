@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Card, CardContent } from "./ui/card";
 import { ChevronRight } from "lucide-react";
-import { BackgroundGradient } from "./ui/background-gradient";
+// import { BackgroundGradient } from "./ui/background-gradient";
 
 export const ExperinceSection: FC = () => {
   const experiences = [
@@ -55,46 +55,46 @@ export const ExperinceSection: FC = () => {
         </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <BackgroundGradient>
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-all duration-300 
+
+            <Card
+              key={index}
+              className="group hover:shadow-lg transition-all duration-300 
                 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-slate-800
-                  hover:bg-slate-50"
-              >
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start">
-                    <div className="space-y-2">
-                      <h3
-                        className="text-xl font-semibold ${
+                  hover:bg-slate-50 "
+            >
+              <CardContent className="p-6">
+                <div className="flex justify-between items-start">
+                  <div className="space-y-2">
+                    <h3
+                      className="text-xl font-semibold ${
                         dark:text-white text-slate-900"
-                      >
-                        {exp.title}
-                      </h3>
-                      <p
-                        className="
+                    >
+                      {exp.title}
+                    </h3>
+                    <p
+                      className="
                         dark:text-slate-400 text-slate-600"
-                      >
-                        {exp.company}
-                      </p>
-                      <p className="text-sm dark:text-slate-500 text-slate-500">
-                        {exp.period}
-                      </p>
-                      <p
-                        className="mt-4 
+                    >
+                      {exp.company}
+                    </p>
+                    <p className="text-sm dark:text-slate-500 text-slate-500">
+                      {exp.period}
+                    </p>
+                    <p
+                      className="mt-4 
                        dark:text-slate-400 text-slate-600"
-                      >
-                        {exp.achievements}
-                      </p>
-                    </div>
-                    <ChevronRight
-                      className="w-5 h-5 transform transition-transform group-hover:translate-x-1 
-                      dark:text-slate-600 text-slate-400"
-                    />
+                    >
+                      {exp.achievements}
+                    </p>
                   </div>
-                </CardContent>
-              </Card>
-            </BackgroundGradient>
+                  <ChevronRight
+                    className="w-5 h-5 transform transition-transform group-hover:translate-x-1 
+                      dark:text-slate-600 text-slate-400"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
           ))}
         </div>
       </div>
